@@ -8,7 +8,7 @@ const Users = () => {
       id: 1,
       name: "Hellekin",
       image:
-        "https://static.wikia.nocookie.net/yugiohenespanol/images/d/d0/Foto_saggi_el_payaso_oscuro.jpg/revision/latest?cb=20120202061441&path-prefix=es",
+        "https://uploads4.yugioh.com/card_images/286/detail/Saggi-the-Dark-Clown.jpg?1375128247",
       places: 3,
     },
   ];
