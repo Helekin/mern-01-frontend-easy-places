@@ -13,7 +13,7 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Users />} />
-          <Route path="/:userId" />
+          <Route path="/:userId/places" element={<UserPlaces />} />
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
       </main>
