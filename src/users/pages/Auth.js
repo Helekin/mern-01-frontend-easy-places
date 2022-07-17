@@ -13,12 +13,16 @@ import {
 import { useForm } from "../../shared/hooks/form-hook";
 import { AuthContext } from "../../shared/context/auth-text";
 
+import { baseURL } from "../../constants/baseURL";
+
 import "./auth.css";
 
 const Auth = () => {
   const auth = useContext(AuthContext);
 
   const [isLoginMode, setIsLoginMode] = useState(true);
+
+  
   const [formState, inputHandler, setFormData] = useForm(
     {
       email: {
@@ -57,7 +61,27 @@ const Auth = () => {
   const authSubmitHandler = async (event) => {
     event.preventDefault();
 
-    fetch("");
+    if (isLoginMode) {
+    } else {
+      try {
+        const response = await fetch(`${baseURL}/api/users/signup`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formState.inputs.name.value,
+            email: formState.inputs.email.value,
+            password: formState.inputs.password.value,
+          }),
+        });
+
+        const data = await response.json();
+        console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
 
     auth.login();
   };
